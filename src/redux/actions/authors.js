@@ -8,7 +8,7 @@ export const getBooks = () => async dispatch => {
       "https://the-index-api.herokuapp.com/api/authors/"
     );
     const books = resource.data;
-    dispatch({ type: SET_BOOKS, payload: books });
+    dispatch({ type: SET_BOOKS, payload: authors });
   } catch (error) {
     console.error(error);
   }
