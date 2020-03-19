@@ -7,12 +7,12 @@ import App from "./App";
 import { Provider } from "react-redux";
 
 // Data Loaders
-import { fetchAuthors, fetchBooks } from "./redux/actions";
+import { getAuthors, getBooks } from "./redux/actions";
 
 import store from "./redux";
 
-store.dispatch(fetchAuthors());
-store.dispatch(fetchBooks());
+store.dispatch(getAuthors());
+store.dispatch(getBooks());
 
 ReactDOM.render(
   <Provider store={store}>
