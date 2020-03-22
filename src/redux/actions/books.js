@@ -2,12 +2,14 @@ import { SET_BOOKS } from "./actionTypes";
 
 import axios from "axios";
 
-export const getBooks = () => async dispatch => {
+const instance = axios.create({
+  baseURL: "https://the-index-api.herokuapp.com"
+});
+
+export const fetchBooks = () => async dispatch => {
   try {
-    const resource = await axios.get(
-      "https://the-index-api.herokuapp.com/api/books/"
-    );
-    const books = resource.data;
+    const res = await instance.get("/api/books/");
+    const books = res.data;
     dispatch({ type: SET_BOOKS, payload: books });
   } catch (error) {
     console.error(error);

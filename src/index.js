@@ -2,17 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import registerServiceWorker from "./registerServiceWorker";
-
 import App from "./App";
 import { Provider } from "react-redux";
-
-// Data Loaders
-import { getAuthors, getBooks } from "./redux/actions";
-
 import store from "./redux";
+import { fetchAuthors, fetchBooks } from "./redux/actions";
 
-store.dispatch(getAuthors());
-store.dispatch(getBooks());
+store.dispatch(fetchAuthors());
+store.dispatch(fetchBooks());
 
 ReactDOM.render(
   <Provider store={store}>
